@@ -14,6 +14,7 @@ export class ServicoPage extends BasePage {
 
     // ----- LOCATORS -----
     this.titulo = page.getByRole('heading', { name: /selecione o serviço/i });
+    this.botaoNovoAtendimento = page.getByRole('button', { name: /novo atendimento/i });
   }
 
   /**
@@ -29,5 +30,12 @@ export class ServicoPage extends BasePage {
    */
   async validarNomeUsuario(nome) {
     await expect(this.page.getByText(new RegExp(nome, 'i')).first()).toBeVisible();
+  }
+
+  /**
+   * Clica em Novo Atendimento.
+   */
+  async clicarNovoAtendimento() {
+    await this.clicar(this.botaoNovoAtendimento);
   }
 }
