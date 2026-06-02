@@ -5,6 +5,7 @@ import { CpfPage } from '../pages/CpfPage.js';
 import { CarteirinhaPage } from '../pages/CarteirinhaPage.js';
 import { AtendimentoPage } from '../pages/AtendimentoPage.js';
 import { ServicoPage } from '../pages/ServicoPage.js';
+import { ErrorModalPage } from '../pages/ErrorModalPage.js';
 
 /**
  * Fixtures customizadas — injetam os Page Objects já prontos nos testes.
@@ -20,6 +21,7 @@ import { ServicoPage } from '../pages/ServicoPage.js';
  * @property {CpfPage} cpfPage
  * @property {CarteirinhaPage} carteirinhaPage
  * @property {AtendimentoPage} atendimentoPage
+ * @property {ErrorModalPage} errorModalPage
  */
 
 /** @type {import('@playwright/test').TestType<import('@playwright/test').PlaywrightTestArgs & import('@playwright/test').PlaywrightTestOptions & PageObjects, import('@playwright/test').PlaywrightWorkerArgs & import('@playwright/test').PlaywrightWorkerOptions>} */
@@ -38,6 +40,10 @@ export const test = base.extend({
 
   servicoPage: async ({ page }, use) => {
     await use(new ServicoPage(page));
+  },
+
+  errorModalPage: async ({ page }, use) => {
+    await use(new ErrorModalPage(page));
   },
 
   atendimentoPage: async ({ page }, use) => {

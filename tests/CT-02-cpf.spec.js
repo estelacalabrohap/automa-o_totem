@@ -8,8 +8,8 @@ const NOME_USUARIO_ESPERADO = 'ELIANE BATISTA CAMARA DE OLIVEIRA';
 /**
  * Fluxo completo de identificação por CPF no totem.
  */
-test.describe('Totem - CPF', () => {
-  test('deve abrir a tela de CPF e digitar o CPF', async ({ identificacaoPage, cpfPage, atendimentoPage }) => {
+test.describe('Totem - CT-02: Login por carteira com sucesso', () => {
+  test('deve realizar login por CPF com sucesso', async ({ identificacaoPage, cpfPage, atendimentoPage }) => {
     await identificacaoPage.abrir();
     await identificacaoPage.selecionarCpf();
     await cpfPage.validarTelaCarregada();
