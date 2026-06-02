@@ -1,0 +1,30 @@
+{
+  "name": "totem-automation",
+  "version": "1.0.0",
+  "description": "Automação de testes E2E do Totem (validação web) com Playwright + Page Objects",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:chromium": "playwright test --project=chromium",
+    "test:totem": "playwright test --project=totem-kiosk",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen",
+    "install:browsers": "playwright install --with-deps"
+  },
+  "keywords": [
+    "playwright",
+    "e2e",
+    "automation",
+    "totem",
+    "page-object"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "dotenv": "^16.4.5"
+  }
+}
