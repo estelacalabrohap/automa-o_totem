@@ -1,5 +1,5 @@
 // @ts-check
-import { test, expect } from '../fixtures/pages.fixture.js';
+import { test, expect } from '../../fixtures/pages.fixture.js';
 
 const CPF_NEGATIVO = process.env.TOTEM_CPF_NEGATIVO ?? '39687034807';
 

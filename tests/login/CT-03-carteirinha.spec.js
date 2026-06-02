@@ -1,5 +1,5 @@
 // @ts-check
-import { test, expect } from '../fixtures/pages.fixture.js';
+import { test, expect } from '../../fixtures/pages.fixture.js';
 
 const CARTEIRINHA_TESTE = process.env.TOTEM_CARTEIRINHA ?? '00100018276003';
 const NOME_USUARIO_ESPERADO = 'Maria';

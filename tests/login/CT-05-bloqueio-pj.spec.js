@@ -1,5 +1,5 @@
 // @ts-check
-import { test, expect } from '../fixtures/pages.fixture.js';
+import { test, expect } from '../../fixtures/pages.fixture.js';
 
 const CARTEIRINHA_INADIMPLENTE = process.env.TOTEM_CARTEIRINHA_INADIMPLENTE ?? '00225022678000';
 const NOME_BENEFICIARIO = 'MARIA DE FATIMA CARVALHO PONTES';

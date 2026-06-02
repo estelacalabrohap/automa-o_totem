@@ -15,6 +15,7 @@ export class ServicoPage extends BasePage {
     // ----- LOCATORS -----
     this.titulo = page.getByRole('heading', { name: /selecione o serviço/i });
     this.botaoNovoAtendimento = page.getByRole('button', { name: /novo atendimento/i });
+    this.botaoSair = page.getByRole('link', { name: /trocar/i });
   }
 
   /**
@@ -37,5 +38,12 @@ export class ServicoPage extends BasePage {
    */
   async clicarNovoAtendimento() {
     await this.clicar(this.botaoNovoAtendimento);
+  }
+
+  /**
+   * Clica em Trocar (Sair/Logout).
+   */
+  async clicarSair() {
+    await this.clicar(this.botaoSair);
   }
 }

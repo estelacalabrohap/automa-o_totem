@@ -1,5 +1,5 @@
 // @ts-check
-import { test, expect } from '../fixtures/pages.fixture.js';
+import { test, expect } from '../../fixtures/pages.fixture.js';
 
 /**
  * Testes da tela de identificação do totem de auto-atendimento Hapvida.

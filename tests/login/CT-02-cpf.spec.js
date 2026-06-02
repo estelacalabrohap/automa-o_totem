@@ -1,5 +1,5 @@
 // @ts-check
-import { test, expect } from '../fixtures/pages.fixture.js';
+import { test, expect } from '../../fixtures/pages.fixture.js';
 
 // CPF de teste (vem do .env; troque por um CPF de teste real lá)
 const CPF_TESTE = process.env.TOTEM_CPF ?? '44425481453';
