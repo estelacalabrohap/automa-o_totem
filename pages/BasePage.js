@@ -78,4 +78,12 @@ export class BasePage {
       fullPage: true,
     });
   }
+
+  /**
+   * Aguarda um tempo específico em ms.
+   * @param {number} ms - milissegundos
+   */
+  async aguardar(ms = 1000) {
+    await this.page.waitForTimeout(ms);
+  }
 }

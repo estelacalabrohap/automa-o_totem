@@ -2,6 +2,8 @@
 import { test as base } from '@playwright/test';
 import { IdentificacaoPage } from '../pages/IdentificacaoPage.js';
 import { CpfPage } from '../pages/CpfPage.js';
+import { CarteirinhaPage } from '../pages/CarteirinhaPage.js';
+import { AtendimentoPage } from '../pages/AtendimentoPage.js';
 
 /**
  * Fixtures customizadas — injetam os Page Objects já prontos nos testes.
@@ -15,6 +17,8 @@ import { CpfPage } from '../pages/CpfPage.js';
  * @typedef {Object} PageObjects
  * @property {IdentificacaoPage} identificacaoPage
  * @property {CpfPage} cpfPage
+ * @property {CarteirinhaPage} carteirinhaPage
+ * @property {AtendimentoPage} atendimentoPage
  */
 
 /** @type {import('@playwright/test').TestType<import('@playwright/test').PlaywrightTestArgs & import('@playwright/test').PlaywrightTestOptions & PageObjects, import('@playwright/test').PlaywrightWorkerArgs & import('@playwright/test').PlaywrightWorkerOptions>} */
@@ -25,6 +29,14 @@ export const test = base.extend({
 
   cpfPage: async ({ page }, use) => {
     await use(new CpfPage(page));
+  },
+
+  carteirinhaPage: async ({ page }, use) => {
+    await use(new CarteirinhaPage(page));
+  },
+
+  atendimentoPage: async ({ page }, use) => {
+    await use(new AtendimentoPage(page));
   },
 });
 

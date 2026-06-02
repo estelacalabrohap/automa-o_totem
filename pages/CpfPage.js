@@ -18,7 +18,7 @@ export class CpfPage extends BasePage {
 
     // ----- LOCATORS -----
     this.titulo = page.getByRole('heading', { name: /^cpf$/i });
-    this.campoCpf = page.locator('#totem-atendimento-input-carteira-cpf');
+    this.campoCpf = page.getByRole('textbox', { name: /^cpf$/i });
     this.botaoVoltar = page.getByRole('button', { name: /voltar/i });
     this.botaoLimpar = page.getByRole('button', { name: /limpar/i });
     this.botaoApagar = page.getByRole('button', { name: /apagar/i });
@@ -89,5 +89,15 @@ export class CpfPage extends BasePage {
    */
   async valorDoCampo() {
     return this.campoCpf.inputValue();
+  }
+
+  /**
+   * Valida que o CPF foi digitado corretamente no campo.
+   * @param {string} cpf - CPF esperado (com ou sem máscara)
+   */
+  async validarCpfPreenchido(cpf) {
+    const valorDigitado = (await this.valorDoCampo()).replace(/\D/g, '');
+    const cpfEsperado = cpf.replace(/\D/g, '');
+    expect(valorDigitado).toBe(cpfEsperado);
   }
 }

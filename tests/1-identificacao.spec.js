@@ -6,18 +6,14 @@ import { test, expect } from '../fixtures/pages.fixture.js';
  * URL: /totem/atendimento/identificar
  */
 test.describe('Totem - Identificação', () => {
-  test('deve abrir a tela de identificação com as opções de acesso', async ({ identificacaoPage }) => {
-    // Abre a URL do totem
+  test('deve abrir a tela de identificação e validar título, subtítulo e opções', async ({ identificacaoPage }) => {
     await identificacaoPage.abrir();
+    await identificacaoPage.aguardar(1500);
 
-    // Valida que a tela carregou com título e as duas opções
     await identificacaoPage.validarTelaCarregada();
-  });
-
-  test('deve exibir o título e o subtítulo corretos', async ({ identificacaoPage }) => {
-    await identificacaoPage.abrir();
-
     await expect(identificacaoPage.titulo).toHaveText(/como prefere se identificar/i);
     await expect(identificacaoPage.subtitulo).toBeVisible();
+    await identificacaoPage.aguardar(1500);
   });
 });
+

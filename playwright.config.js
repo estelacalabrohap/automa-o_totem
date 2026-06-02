@@ -21,8 +21,8 @@ export default defineConfig({
     timeout: 10 * 1000,
   },
 
-  // Roda os testes em paralelo dentro de cada arquivo
-  fullyParallel: true,
+  // Roda os testes um por um (sem paralelismo)
+  fullyParallel: false,
 
   // Impede o uso acidental de test.only em CI
   forbidOnly: !!process.env.CI,
@@ -30,8 +30,8 @@ export default defineConfig({
   // Número de tentativas em caso de falha (2 no CI, 0 local)
   retries: process.env.CI ? 2 : 0,
 
-  // Número de workers paralelos
-  workers: process.env.CI ? 1 : undefined,
+  // Usa apenas um worker para abrir uma única instância de browser
+  workers: 1,
 
   // Relatórios: HTML (visual) + lista no terminal
   reporter: [
