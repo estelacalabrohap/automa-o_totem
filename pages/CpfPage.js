@@ -96,8 +96,10 @@ export class CpfPage extends BasePage {
    * @param {string} cpf - CPF esperado (com ou sem máscara)
    */
   async validarCpfPreenchido(cpf) {
-    const valorDigitado = (await this.valorDoCampo()).replace(/\D/g, '');
     const cpfEsperado = cpf.replace(/\D/g, '');
-    expect(valorDigitado).toBe(cpfEsperado);
+    await expect.poll(
+      async () => (await this.valorDoCampo()).replace(/\D/g, ''),
+      { timeout: 10000 }
+    ).toBe(cpfEsperado);
   }
 }

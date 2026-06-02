@@ -13,18 +13,12 @@ test.describe('Totem - CPF', () => {
     await identificacaoPage.abrir();
     await identificacaoPage.selecionarCpf();
     await cpfPage.validarTelaCarregada();
-    await cpfPage.aguardar(1500);
-
-    await cpfPage.clicar(cpfPage.campoCpf);
-    await cpfPage.aguardar(1500);
 
     await cpfPage.digitarCpf(CPF_TESTE);
-    await cpfPage.aguardar(1500);
     await cpfPage.validarCpfPreenchido(CPF_TESTE);
-    await cpfPage.aguardar(1500);
 
     await cpfPage.confirmar();
+    await atendimentoPage.validarTelaCarregada();
     await atendimentoPage.validarNomeTitular(NOME_USUARIO_ESPERADO);
-    await atendimentoPage.aguardar(1500);
   });
 });

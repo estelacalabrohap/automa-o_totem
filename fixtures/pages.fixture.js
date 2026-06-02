@@ -4,6 +4,7 @@ import { IdentificacaoPage } from '../pages/IdentificacaoPage.js';
 import { CpfPage } from '../pages/CpfPage.js';
 import { CarteirinhaPage } from '../pages/CarteirinhaPage.js';
 import { AtendimentoPage } from '../pages/AtendimentoPage.js';
+import { ServicoPage } from '../pages/ServicoPage.js';
 
 /**
  * Fixtures customizadas — injetam os Page Objects já prontos nos testes.
@@ -33,6 +34,10 @@ export const test = base.extend({
 
   carteirinhaPage: async ({ page }, use) => {
     await use(new CarteirinhaPage(page));
+  },
+
+  servicoPage: async ({ page }, use) => {
+    await use(new ServicoPage(page));
   },
 
   atendimentoPage: async ({ page }, use) => {

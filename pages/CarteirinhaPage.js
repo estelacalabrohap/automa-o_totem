@@ -63,4 +63,16 @@ export class CarteirinhaPage extends BasePage {
   async valorDoCampo() {
     return this.campoCarteirinha.inputValue();
   }
+
+  /**
+   * Valida que a carteirinha foi digitada corretamente no campo.
+   * @param {string} carteirinha - valor esperado (com ou sem máscara)
+   */
+  async validarCarteirinhaPreenchida(carteirinha) {
+    const esperado = carteirinha.replace(/\D/g, '');
+    await expect.poll(
+      async () => (await this.valorDoCampo()).replace(/\D/g, ''),
+      { timeout: 10000 }
+    ).toBe(esperado);
+  }
 }

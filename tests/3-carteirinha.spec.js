@@ -8,24 +8,17 @@ const NOME_USUARIO_ESPERADO = 'Maria';
  * Fluxo completo de Carteirinha no totem.
  */
 test.describe('Totem - Carteirinha', () => {
-  test('deve abrir a tela de carteirinha, digitar a carteirinha e validar o nome', async ({ identificacaoPage, carteirinhaPage, atendimentoPage }) => {
+  test('deve abrir a tela de carteirinha, digitar a carteirinha e validar o nome', async ({ identificacaoPage, carteirinhaPage, servicoPage }) => {
     await identificacaoPage.abrir();
     await identificacaoPage.selecionarCarteirinha();
     await carteirinhaPage.validarTelaCarregada();
-    await carteirinhaPage.aguardar(1500);
 
     await carteirinhaPage.clicar(carteirinhaPage.campoCarteirinha);
-    await carteirinhaPage.aguardar(1500);
-
     await carteirinhaPage.digitarCarteirinha(CARTEIRINHA_TESTE);
-    await carteirinhaPage.aguardar(1500);
-
-    const valor = (await carteirinhaPage.valorDoCampo()).replace(/\D/g, '');
-    expect(valor).toBe(CARTEIRINHA_TESTE.replace(/\D/g, ''));
-    await carteirinhaPage.aguardar(1500);
+    await carteirinhaPage.validarCarteirinhaPreenchida(CARTEIRINHA_TESTE);
 
     await carteirinhaPage.confirmar();
-    await atendimentoPage.validarNomeTitular(NOME_USUARIO_ESPERADO);
-    await atendimentoPage.aguardar(1500);
+    await servicoPage.validarTelaCarregada();
+    await servicoPage.validarNomeUsuario(NOME_USUARIO_ESPERADO);
   });
 });

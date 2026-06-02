@@ -8,12 +8,10 @@ import { test, expect } from '../fixtures/pages.fixture.js';
 test.describe('Totem - Identificação', () => {
   test('deve abrir a tela de identificação e validar título, subtítulo e opções', async ({ identificacaoPage }) => {
     await identificacaoPage.abrir();
-    await identificacaoPage.aguardar(1500);
 
     await identificacaoPage.validarTelaCarregada();
     await expect(identificacaoPage.titulo).toHaveText(/como prefere se identificar/i);
     await expect(identificacaoPage.subtitulo).toBeVisible();
-    await identificacaoPage.aguardar(1500);
   });
 });
 
